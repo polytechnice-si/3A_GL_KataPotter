@@ -3,12 +3,13 @@ package raw;
 import java.util.List;
 
 /**
- * Calculator for the KataPotter exercice (source: )
+ * Calculator for the KataPotter exercise
+ * (source: http://bfindeiss.blogspot.fr/2013/07/the-katapotter-in-java-solved-in-31.html)
  */
 public class PotterDiscountCalculator {
 
-    double[] discountRates;
-    int[] discounts;
+    private double[] discountRates;
+    private int[] discounts;
 
     // slight deviation from the original code to support multiple computation with the same object
     private void init() {
@@ -17,7 +18,7 @@ public class PotterDiscountCalculator {
     }
 
     public double calculatePrice(List<Integer> order) {
-        init();
+        init(); // resetting the calculator before computing a price
         if (order == null || order.isEmpty())
             return 0.0;
         int[] booksInOrder = calculateBooksInOrder(order);

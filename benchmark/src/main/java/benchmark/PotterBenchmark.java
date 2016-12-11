@@ -42,25 +42,52 @@ import java.util.concurrent.TimeUnit;
 
 import static oo.Book.*;
 
-@BenchmarkMode(Mode.SingleShotTime) // Benchmark debug purpose
-//@BenchmarkMode(Mode.AverageTime)  // Production configuration (avg time in microseconds)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+//@BenchmarkMode(Mode.SingleShotTime) // Benchmark debug purpose
+@BenchmarkMode(Mode.AverageTime)      // Production configuration (avg time in microseconds)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class PotterBenchmark {
 
     @Benchmark
-    public void rawCalculator() {
-        PotterDiscountCalculator calculator = new PotterDiscountCalculator();
-        List<Integer> contents = Arrays.asList(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5);
-        calculator.calculatePrice(contents);
+    public void ooBasics() {
+        Cashier cashier = new Cashier();
+        cashier.price(new Basket(BOOK1)); cashier.price(new Basket(BOOK2));
+        cashier.price(new Basket(BOOK3)); cashier.price(new Basket(BOOK4));
+        cashier.price(new Basket(BOOK5));
     }
 
     @Benchmark
-    public void ooCalculator() {
+    public void rawBasics() {
+        PotterDiscountCalculator calculator = new PotterDiscountCalculator();
+        calculator.calculatePrice(Arrays.asList(1));
+    }
+
+    @Benchmark
+    public void ooDiscount() {
+        Cashier cashier = new Cashier();
+        Basket b = new Basket( BOOK1, BOOK2, BOOK3, BOOK4, BOOK5);
+        cashier.price(b);
+    }
+
+    @Benchmark
+    public void rawDiscount() {
+        PotterDiscountCalculator calculator = new PotterDiscountCalculator();
+        calculator.calculatePrice(Arrays.asList(1,2,3,4,5));
+    }
+
+    @Benchmark
+    public void ooEdge() {
         Cashier cashier = new Cashier();
         Basket allin = new Basket(
                 BOOK1, BOOK1, BOOK1, BOOK1, BOOK1, BOOK2, BOOK2, BOOK2, BOOK2, BOOK2,
                 BOOK3, BOOK3, BOOK3, BOOK3, BOOK4, BOOK4, BOOK4, BOOK4, BOOK4, BOOK5, BOOK5, BOOK5, BOOK5 );
         cashier.price(allin);
+    }
+
+    @Benchmark
+    public void rawEdge() {
+        PotterDiscountCalculator calculator = new PotterDiscountCalculator();
+        List<Integer> contents = Arrays.asList(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5);
+        calculator.calculatePrice(contents);
     }
 
 }

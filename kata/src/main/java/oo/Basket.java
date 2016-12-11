@@ -1,11 +1,12 @@
 package oo;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Basket {
 
-    private Map<Book, Integer> contents = new HashMap<>();
+    private Map<Book, Integer> contents = new EnumMap<>(Book.class);
 
     public Basket() {
         for(Book b: Book.values())
@@ -42,7 +43,7 @@ public class Basket {
     }
 
     public Basket duplicate() {
-        Map<Book, Integer> copy = new HashMap<>();
+        Map<Book, Integer> copy = new EnumMap<>(Book.class);
         copy.putAll(contents);
         return new Basket(copy);
     }

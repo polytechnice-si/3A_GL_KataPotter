@@ -19,6 +19,7 @@ public class Cashier {
 
     private double compute(Basket b) {
         if(b.isEmpty()) { return 0.0f; }
+
         List<Discount> availables = findAvailableDiscount(b);
         if(availables.isEmpty()) {
             return PRICE * b.howManyBooks();
