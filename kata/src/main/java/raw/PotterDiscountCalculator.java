@@ -11,7 +11,6 @@ public class PotterDiscountCalculator {
     private double[] discountRates;
     private int[] discounts;
 
-    // slight deviation from the original code to support multiple computation with the same object
     private void init() {
         discountRates = new double[]{ 1, 0.95, 0.90, 0.80, 0.75 };
         discounts = new int[5];

@@ -22,7 +22,11 @@ public class BasketTest {
             assertEquals(1, complete.howMany(b));
 
         for(Book b: Book.values())
-            if(b == BOOK3) { assertEquals(3, azkaban.howMany(b)); } else { assertEquals(0, azkaban.howMany(b)); }
+            if(b == BOOK3) {
+                assertEquals(3, azkaban.howMany(b));
+            } else {
+                assertEquals(0, azkaban.howMany(b));
+            }
 
     }
 

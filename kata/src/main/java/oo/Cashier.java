@@ -18,7 +18,7 @@ public class Cashier {
     }
 
     private double compute(Basket b) {
-        if(b.isEmpty()) { return 0.0f; }
+        if(b.isEmpty()) { return 0.0; }
 
         List<Discount> availables = findAvailableDiscount(b);
         if(availables.isEmpty()) {
@@ -39,3 +39,4 @@ public class Cashier {
     }
 
 }
+

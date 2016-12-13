@@ -57,7 +57,8 @@ public class PotterDicsountCalculatorTest {
 
     @Test
     public void edgeCase() {
-        assertEquals( 51.20, calculator.calculatePrice(build(1, 1, 2, 2, 3, 3, 4, 5)), 0.01);
+        assertEquals( 51.20,
+                calculator.calculatePrice(build(1, 1, 2, 2, 3, 3, 4, 5)), 0.01);
         assertEquals(141.20, calculator.calculatePrice(
                 build(  1, 1, 1, 1, 1,
                         2, 2, 2, 2, 2,
