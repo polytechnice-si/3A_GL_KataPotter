@@ -10,11 +10,12 @@
 
 This repository contains the following material:
 
-  - `slides.pdf`: presentation(~40 minutes) used to present this Kata to undergrad students in software engineering (some slides are in French).
-  - `kata`: the business code of the Harry Potter Kata
-    - `raw` package: original solution found on the internet
-    - `oo` package: object-oriented version
-  - `benchmark`: benchmark to measure the differences (_w.r.t._ performances) between the initial and the object-oriented versions of the code.
+  - [`slides.pdf`](https://github.com/polytechnice-si/3A_GL_KataPotter/blob/master/slides.pdf): presentation(~40 minutes) used to present this Kata to undergrad students in software engineering (some slides are in French).
+  - [kata](https://github.com/polytechnice-si/3A_GL_KataPotter/tree/master/kata): the business code of the Harry Potter Kata
+    - [`raw`](https://github.com/polytechnice-si/3A_GL_KataPotter/tree/master/kata/src/main/java/raw) package: original solution found on the internet
+    - [`oo`](https://github.com/polytechnice-si/3A_GL_KataPotter/tree/master/kata/src/main/java/oo) package: object-oriented version
+  - [benchmark](https://github.com/polytechnice-si/3A_GL_KataPotter/tree/master/benchmark): benchmark to measure the differences (_w.r.t._ performances) between the initial and the object-oriented versions of the code.
+  - Each version comes with an associated [test suite](https://github.com/polytechnice-si/3A_GL_KataPotter/tree/master/kata/src/test/java)
 
 ## Specifications
 
